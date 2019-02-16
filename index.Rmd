@@ -1,0 +1,65 @@
+---
+title       : caratPrice App
+subtitle    : Documentation
+author      : Shane B. Bimeda Feb. 17, 2019 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## caratPrice App
+
+The application takes in the **carat value** supplied by the user and uses it as an input in a linear model based on the **diamonds** dataset from the **ggplot2 package**.
+
+The output is the specific value of the **price** as predicted by the model and a plot of the model itself.
+
+--- 
+
+## Dataset used: **Diamonds**
+
+The dataset contains the prices and other attributes of almost 54,000 diamonds. It is composed of 53940 rows and 10 variables that are as follows:
+
+- price
+- carat
+- cut
+- color
+- clarity
+- length (x, y, z)
+- depth
+- table
+
+---
+
+## Building the linear model
+
+```{r, comment= FALSE, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+```
+
+```{r, comment= FALSE, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+
+
+model1 <- lm(price ~ carat, data = diamonds)
+
+```
+
+The model makes use of a simple linear regression wherein the **y** variable is the **price of the diamond** and the **x** variable is the **carat** of the diamond.
+
+---
+
+## Plot of the Model Used (Residuals vs Fitted)
+
+```{r, comment= FALSE, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+
+plot(model1)
+
+```
+
+
+
+
